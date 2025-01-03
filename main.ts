@@ -200,6 +200,27 @@ export const FF : Array<{title : String, list : Array<{name : string, price : nu
         ]
     }
 ]
+export const Hok : Array<{title : string, list : Array<{name : string, price : number, code : string}>}> = [
+    {
+        title : "** DAFTAR HARGA HONOR OF KINGS **",
+        list  : [
+        {name : "Honor of Kings - 8 Tokens", price: 1244.25, code : "HOKT8T"},
+        {name : "Honor of Kings - 16 + 1 Tokens", price: 2451.75, code : "HOKT16T"},
+        {name : "Honor of Kings - 23 + 2 Tokens", price: 4793.25, code : "HOKT23T"},
+        {name : "Honor of Kings - 80 + 8 Tokens", price: 11525.85, code : "HOKT80T"},
+        {name : "Honor of Kings - Weekly Card", price: 11525.85, code : "HOKWCC"},
+        {name : "Honor of Kings - 240 + 17 Tokens", price: 38014.20, code : "HOKT240T"},
+        {name : "Honor of Kings - Weekly Card Plus", price: 38014.20, code : "HOKWCPP"},
+        {name : "Honor of Kings - 400 + 32 Tokens", price: 63809.55, code : "HOKT400T"},
+        {name : "Honor of Kings - 560 + 45 Tokens", price: 87516.45, code : "HOKT560T"},
+        {name : "Honor of Kings - 800 + 95 Tokens", price: 117847.80, code : "HOKT800T"},
+        {name : "Honor of Kings - 1200 + 153 Tokens", price: 188790.00, code : "HOKT1200T"},
+        {name : "Honor of Kings - 2400 + 324 Tokens", price: 372458.10, code : "HOKT2400T"},
+        {name : "Honor of Kings - 4000 + 580 Tokens", price: 609947.10, code : "HOKT4000T"},
+        {name : "Honor of Kings - 8000 + 1160 Tokens", price: 1156706.25, code : "HOKT8000T"}
+        ]
+    }
+]
 
 
 
@@ -421,7 +442,19 @@ bot.onText(HOK,         (msg : any)=>{
     const Chatid : number = msg.chat.id
     const userId : number = msg.from.id
 
-    bot.sendMessage(Chatid, Soon)
+    const listitems = Hok.map(items => {
+        const title = items.title
+        const list = items.list.map(item => {
+            const name : string = item.name
+            const price : number = item.price
+            const code : string = item.code
+            const untung : number = price * 8/100
+            const total : number = Math.round(price + untung)
+            return ( `> ${name}\n> Rp ${total.toLocaleString()}\n> code : ${code} ` )
+        }).join(`\n\n`)
+        return(`${title}\n\n\n ${list}`)
+    })
+    bot.sendMessage(Chatid, `${listitems}\n\nuntuk membeli bisa gunakan ${prefix}buy [kode] [ id ] [ nickname ]\n\n contoh : ${prefix}buy ${Hok[0].list[2].code} 64378003 TOKYO \n\n KESALAHAN INPUT BUKAN KESALAHAN DARI PIHAK KAMI`)
 })
 bot.onText(netflix,     (msg : any)=>{
     const Chatid : number = msg.chat.id

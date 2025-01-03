@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.FF = exports.CODM = exports.Pubgm = exports.SL = exports.Genshin = exports.MLGB = exports.MLindo = exports.WDP = exports.List = exports.Soon = void 0;
+exports.Hok = exports.FF = exports.CODM = exports.Pubgm = exports.SL = exports.Genshin = exports.MLGB = exports.MLindo = exports.WDP = exports.List = exports.Soon = void 0;
 var pict = "./QR.jpg";
 var TelegramBot = require("node-telegram-bot-api");
 var token = "6935824994:AAHkW2N8clxr8HnUJsxDTHgxZwXbxBFYi1I";
@@ -226,6 +226,27 @@ exports.FF = [
             { name: "Garena Free Fire (Indonesia) - 2180 Diamonds", price: 255520.72, code: "GFFID2180D" },
             { name: "Garena Free Fire (Indonesia) - 3640 Diamonds", price: 425480.64, code: "GFFID3640D" },
             { name: "Garena Free Fire (Indonesia) - 7290 Diamonds", price: 838782.88, code: "GFFID7290D" }
+        ]
+    }
+];
+exports.Hok = [
+    {
+        title: "** DAFTAR HARGA HONOR OF KINGS **",
+        list: [
+            { name: "Honor of Kings - 8 Tokens", price: 1244.25, code: "HOKT8T" },
+            { name: "Honor of Kings - 16 + 1 Tokens", price: 2451.75, code: "HOKT16T" },
+            { name: "Honor of Kings - 23 + 2 Tokens", price: 4793.25, code: "HOKT23T" },
+            { name: "Honor of Kings - 80 + 8 Tokens", price: 11525.85, code: "HOKT80T" },
+            { name: "Honor of Kings - Weekly Card", price: 11525.85, code: "HOKWCC" },
+            { name: "Honor of Kings - 240 + 17 Tokens", price: 38014.20, code: "HOKT240T" },
+            { name: "Honor of Kings - Weekly Card Plus", price: 38014.20, code: "HOKWCPP" },
+            { name: "Honor of Kings - 400 + 32 Tokens", price: 63809.55, code: "HOKT400T" },
+            { name: "Honor of Kings - 560 + 45 Tokens", price: 87516.45, code: "HOKT560T" },
+            { name: "Honor of Kings - 800 + 95 Tokens", price: 117847.80, code: "HOKT800T" },
+            { name: "Honor of Kings - 1200 + 153 Tokens", price: 188790.00, code: "HOKT1200T" },
+            { name: "Honor of Kings - 2400 + 324 Tokens", price: 372458.10, code: "HOKT2400T" },
+            { name: "Honor of Kings - 4000 + 580 Tokens", price: 609947.10, code: "HOKT4000T" },
+            { name: "Honor of Kings - 8000 + 1160 Tokens", price: 1156706.25, code: "HOKT8000T" }
         ]
     }
 ];
@@ -455,7 +476,19 @@ bot.onText(freefire, function (msg) {
 bot.onText(HOK, function (msg) {
     var Chatid = msg.chat.id;
     var userId = msg.from.id;
-    bot.sendMessage(Chatid, exports.Soon);
+    var listitems = exports.Hok.map(function (items) {
+        var title = items.title;
+        var list = items.list.map(function (item) {
+            var name = item.name;
+            var price = item.price;
+            var code = item.code;
+            var untung = price * 8 / 100;
+            var total = Math.round(price + untung);
+            return ("> ".concat(name, "\n> Rp ").concat(total.toLocaleString(), "\n> code : ").concat(code, " "));
+        }).join("\n\n");
+        return ("".concat(title, "\n\n\n ").concat(list));
+    });
+    bot.sendMessage(Chatid, "".concat(listitems, "\n\nuntuk membeli bisa gunakan ").concat(prefix, "buy [kode] [ id ] [ nickname ]\n\n contoh : ").concat(prefix, "buy ").concat(exports.Hok[0].list[2].code, " 64378003 TOKYO \n\n KESALAHAN INPUT BUKAN KESALAHAN DARI PIHAK KAMI"));
 });
 bot.onText(netflix, function (msg) {
     var Chatid = msg.chat.id;
