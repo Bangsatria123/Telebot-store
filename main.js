@@ -48,6 +48,7 @@ var Buy = new RegExp("^".concat(prefix, "buy"));
 var Process = new RegExp("^".concat(prefix, "process"));
 var Check = new RegExp("^".concat(prefix, "check"));
 var done = new RegExp("^".concat(prefix, "done"));
+var Ai = new RegExp("^".concat(prefix, "ai"));
 // LIST HARGA --------
 var indo = new RegExp("^".concat(prefix, "dmindo$"));
 var genshin = new RegExp("^".concat(prefix, "genshin$"));
@@ -58,7 +59,7 @@ var HOK = new RegExp("^".concat(prefix, "HOK$")); //dm HOK
 var netflix = new RegExp("^".concat(prefix, "netflix$")); //dm netflix
 var freefire = new RegExp("^".concat(prefix, "freefire$")); //dm freefire
 var pubgm = new RegExp("^".concat(prefix, "pubgm$")); //dm pubgm
-var codm = new RegExp("^".concat(prefix, "stalight$")); //dm stalight
+var codm = new RegExp("^".concat(prefix, "codm$")); //dm stalight
 var valo = new RegExp("^".concat(prefix, "valo$")); //dm valo
 var pointblank = new RegExp("^".concat(prefix, "pointblank$")); //dm pointblank
 // END LIST HARGA -------------------
@@ -302,14 +303,15 @@ bot.onText(Check, function (msg) { return __awaiter(void 0, void 0, void 0, func
 bot.onText(Process, function (msg) {
     var _a;
     var Chatid = msg.chat.id;
-    var text = msg.reply_to_message.text.split(" ");
+    var text = msg.text.split(" ");
     var receiver = text[8];
+    console.log(text);
     var message = "\u2500\u2500 \u300C DETAIL PESANAN \u300D \u2500\u2500\n> id : ".concat(text[2], " \n> server : ").concat(text[3], "\n> nickname : ").concat(((_a = text[4].split("+")) === null || _a === void 0 ? void 0 : _a.join(" ")) || text[4], "\n> kode : ").concat(text[1], "\n> Status : sedang di proses silahkan tunggu 1 - 10 menit / 7 hari - 10 hari untuk starlight / gift\n> jika masih belum ada response setelah itu silahkan tinggalkan komentar dengan menggunakan /komen [ pesan ] \n\u2500\u2500 \u300C TERIMAKASIH TELAH BERBELANJA DI ANTASENA STORE \u300D \u2500\u2500\n\n\n");
     bot.sendMessage(receiver, "".concat(message));
     bot.sendMessage(Chatid, "".concat(text[2], " ").concat(text[3], " ").concat(text[4]));
 });
 bot.onText(done, function (msg) {
-    var msgs = msg.reply_to_message.text.split(" ");
+    var msgs = msg.text.split(" ");
     var receiver = msgs[8];
     var message = "\u2500\u2500 \u300C DETAIL PESANAN \u300D \u2500\u2500\n> id : ".concat(msgs[2], " \n> server : ").concat(msgs[3], "\n> nickname : ").concat(msgs[4].split("+").join(" "), "\n> kode : ").concat(msgs[1], "\n> Status : Pesanan Telah Terkirim Silahkan Cek Melalui In Game\n\n\u2500\u2500 \u300C TERIMAKASIH TELAH BERBELANJA DI ANTASENA STORE \u300D \u2500\u2500\n\n\n");
     bot.sendMessage(receiver, "".concat(message));
@@ -332,7 +334,7 @@ bot.onText(Listharga, function (msg) {
         var name = List.name;
         return "".concat(name);
     }).join("\n");
-    bot.sendMessage(chatid, "".concat(listItems))
+    bot.sendMessage(chatid, "".concat(listItems, " "))
         .then(function () {
         bot.deleteMessage(chatid, msg.message_id);
     });
@@ -412,7 +414,7 @@ bot.onText(starlight, function (msg) {
             var name = SL.name;
             var price = SL.price;
             var code = SL.code;
-            return (">".concat(name, "\n-Rp ").concat(price, "\nCode ").concat(code));
+            return (">".concat(name, "\n-Rp ").concat(price.toLocaleString(), "\nCode ").concat(code));
         }).join("\n\n");
         return ("".concat(title, "\n\n").concat(list, "\n\n").concat(Disc));
     });
@@ -432,11 +434,14 @@ bot.onText(pubgm, function (msg) {
             var code = items.code;
             var percent = price / 10;
             var total = Math.round(price + percent);
-            return ("> ".concat(name, "\n> Rp. ").concat(total, "\n> Code : ").concat(code));
+            return ("> ".concat(name, "\n> Rp. ").concat(total.toLocaleString(), "\n> Code : ").concat(code));
         }).join("\n\n");
         return ("".concat(title, "\n\n").concat(list));
     });
-    bot.sendMessage(Chatid, "".concat(listItems, "\n\nuntuk membeli bisa gunakan ").concat(prefix, "buy [kode] [ id ] [ nickname ]\n\n contoh : ").concat(prefix, "buy ").concat(exports.Pubgm[0].list[2].code, " 64378003 TOKYO \n\n KESALAHAN INPUT BUKAN KESALAHAN DARI PIHAK KAMI "));
+    bot.sendMessage(Chatid, "".concat(listItems, "\n\nuntuk membeli bisa gunakan ").concat(prefix, "buy [kode] [ id ] [ nickname ]\n\n contoh : ").concat(prefix, "buy ").concat(exports.Pubgm[0].list[2].code, " 64378003 TOKYO \n\n KESALAHAN INPUT BUKAN KESALAHAN DARI PIHAK KAMI "))
+        .then(function () {
+        bot.deleteMessage(Chatid, msg.message_id);
+    });
 });
 bot.onText(codm, function (msg) {
     var Chatid = msg.chat.id;
@@ -450,11 +455,14 @@ bot.onText(codm, function (msg) {
             var untung = price * 7 / 100;
             var total = Math.round(untung + price);
             var code = items.code;
-            return ("> ".concat(nama, "\n> Rp. ").concat(total, "\n> Code : ").concat(code));
+            return ("> ".concat(nama, "\n> Rp. ").concat(total.toLocaleString(), "\n> Code : ").concat(code));
         }).join("\n\n");
         return ("".concat(title, "\n\n").concat(item));
     });
-    bot.sendMessage(Chatid, "".concat(listitems, "\n\nuntuk membeli bisa gunakan ").concat(prefix, "buy [kode] [ id ] [ nickname ]\n\n contoh : ").concat(prefix, "buy ").concat(exports.CODM[0].list[2].code, " 64378003 TOKYO \n\n KESALAHAN INPUT BUKAN KESALAHAN DARI PIHAK KAMI"));
+    bot.sendMessage(Chatid, "".concat(listitems, "\n\nuntuk membeli bisa gunakan ").concat(prefix, "buy [kode] [ id ] [ nickname ]\n\n contoh : ").concat(prefix, "buy ").concat(exports.CODM[0].list[2].code, " 64378003 TOKYO \n\n KESALAHAN INPUT BUKAN KESALAHAN DARI PIHAK KAMI"))
+        .then(function () {
+        bot.deleteMessage(Chatid, msg.message_id);
+    });
 });
 bot.onText(freefire, function (msg) {
     var Chatid = msg.chat.id;
@@ -467,11 +475,14 @@ bot.onText(freefire, function (msg) {
             var code = item.code;
             var untung = price * 7 / 100;
             var total = Math.round(price + untung);
-            return ("> ".concat(name, "\n> Rp. ").concat(total, "\n> Code : ").concat(code));
+            return ("> ".concat(name, "\n> Rp. ").concat(total.toLocaleString(), "\n> Code : ").concat(code));
         }).join("\n\n");
         return ("".concat(title, "\n\n").concat(list));
     }).join("\n\n");
-    bot.sendMessage(Chatid, "".concat(listitems, "\n\nuntuk membeli bisa gunakan ").concat(prefix, "buy [kode] [ id ] [ nickname ]\n\n contoh : ").concat(prefix, "buy ").concat(exports.FF[0].list[2].code, " 64378003 TOKYO \n\n KESALAHAN INPUT BUKAN KESALAHAN DARI PIHAK KAMI"));
+    bot.sendMessage(Chatid, "".concat(listitems, "\n\nuntuk membeli bisa gunakan ").concat(prefix, "buy [kode] [ id ] [ nickname ]\n\n contoh : ").concat(prefix, "buy ").concat(exports.FF[0].list[2].code, " 64378003 TOKYO \n\n KESALAHAN INPUT BUKAN KESALAHAN DARI PIHAK KAMI"))
+        .then(function () {
+        bot.deleteMessage(Chatid, msg.message_id);
+    });
 });
 bot.onText(HOK, function (msg) {
     var Chatid = msg.chat.id;
@@ -488,20 +499,29 @@ bot.onText(HOK, function (msg) {
         }).join("\n\n");
         return ("".concat(title, "\n\n\n ").concat(list));
     });
-    bot.sendMessage(Chatid, "".concat(listitems, "\n\nuntuk membeli bisa gunakan ").concat(prefix, "buy [kode] [ id ] [ nickname ]\n\n contoh : ").concat(prefix, "buy ").concat(exports.Hok[0].list[2].code, " 64378003 TOKYO \n\n KESALAHAN INPUT BUKAN KESALAHAN DARI PIHAK KAMI"));
+    bot.sendMessage(Chatid, "".concat(listitems, "\n\nuntuk membeli bisa gunakan ").concat(prefix, "buy [kode] [ id ] [ nickname ]\n\n contoh : ").concat(prefix, "buy ").concat(exports.Hok[0].list[2].code, " 64378003 TOKYO \n\n KESALAHAN INPUT BUKAN KESALAHAN DARI PIHAK KAMI"))
+        .then(function () {
+        bot.deleteMessage(Chatid, msg.message_id);
+    });
 });
 bot.onText(netflix, function (msg) {
     var Chatid = msg.chat.id;
     var userId = msg.from.id;
-    bot.sendMessage(Chatid, exports.Soon);
+    bot.sendMessage(Chatid, exports.Soon).then(function () {
+        bot.deleteMessage(Chatid, msg.message_id);
+    });
 });
 bot.onText(valo, function (msg) {
     var Chatid = msg.chat.id;
     var userId = msg.from.id;
-    bot.sendMessage(Chatid, exports.Soon);
+    bot.sendMessage(Chatid, exports.Soon).then(function () {
+        bot.deleteMessage(Chatid, msg.message_id);
+    });
 });
 bot.onText(pointblank, function (msg) {
     var Chatid = msg.chat.id;
     var userId = msg.from.id;
-    bot.sendMessage(Chatid, exports.Soon);
+    bot.sendMessage(Chatid, exports.Soon).then(function () {
+        bot.deleteMessage(Chatid, msg.message_id);
+    });
 });

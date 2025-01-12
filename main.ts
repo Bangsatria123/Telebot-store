@@ -3,6 +3,7 @@ const TelegramBot = require("node-telegram-bot-api");
 
 const token : String = "6935824994:AAHkW2N8clxr8HnUJsxDTHgxZwXbxBFYi1I"
 
+
 const bot = new TelegramBot(token, {polling : true})
 
 
@@ -16,6 +17,7 @@ const Buy = new RegExp(`^${prefix}buy`)
 const Process = new RegExp(`^${prefix}process`)
 const Check = new RegExp(`^${prefix}check`)
 const done = new RegExp(`^${prefix}done`)
+const Ai = new RegExp(`^${prefix}ai`)
 
 // LIST HARGA --------
 const indo = new RegExp(`^${prefix}dmindo$`)
@@ -27,7 +29,7 @@ const HOK = new RegExp(`^${prefix}HOK$`) //dm HOK
 const netflix = new RegExp(`^${prefix}netflix$`) //dm netflix
 const freefire = new RegExp(`^${prefix}freefire$`) //dm freefire
 const pubgm = new RegExp(`^${prefix}pubgm$`) //dm pubgm
-const codm = new RegExp(`^${prefix}stalight$`) //dm stalight
+const codm = new RegExp(`^${prefix}codm$`) //dm stalight
 const valo = new RegExp(`^${prefix}valo$`) //dm valo
 const pointblank = new RegExp(`^${prefix}pointblank$`) //dm pointblank
 // END LIST HARGA -------------------
@@ -263,14 +265,16 @@ bot.onText(Check,  async(msg : any)=>{
 })
 bot.onText(Process,     (msg : any)=>{
     const Chatid : number = msg.chat.id
-    const text : string = msg.reply_to_message.text.split(` `)
+    const text : string = msg.text.split(` `)
     const receiver = text[8]
+    console.log(text)
     const message : string = `── 「 DETAIL PESANAN 」 ──\n> id : ${text[2]} \n> server : ${text[3]}\n> nickname : ${text[4].split("+")?.join(" ") || text[4]}\n> kode : ${text[1]}\n> Status : sedang di proses silahkan tunggu 1 - 10 menit / 7 hari - 10 hari untuk starlight / gift\n> jika masih belum ada response setelah itu silahkan tinggalkan komentar dengan menggunakan /komen [ pesan ] \n── 「 TERIMAKASIH TELAH BERBELANJA DI ANTASENA STORE 」 ──\n\n\n`
         bot.sendMessage(receiver, `${message}`)
         bot.sendMessage(Chatid, `${text[2]} ${text[3]} ${text[4]}`)
+
 })
 bot.onText(done,        (msg : any)=>{
-    const msgs = msg.reply_to_message.text.split(" ")
+    const msgs = msg.text.split(" ")
     const receiver = msgs[8]
     const message : string = `── 「 DETAIL PESANAN 」 ──\n> id : ${msgs[2]} \n> server : ${msgs[3]}\n> nickname : ${msgs[4].split("+").join(" ")}\n> kode : ${msgs[1]}\n> Status : Pesanan Telah Terkirim Silahkan Cek Melalui In Game\n\n── 「 TERIMAKASIH TELAH BERBELANJA DI ANTASENA STORE 」 ──\n\n\n`
         bot.sendMessage(receiver, `${message}`)
@@ -293,7 +297,7 @@ bot.onText(Listharga,   (msg : any)=>{
         const name : string = List.name
         return `${name}`
     }).join(`\n`)
-    bot.sendMessage(chatid, `${listItems}`)
+    bot.sendMessage(chatid, `${listItems} `)
     .then(()=>{
         bot.deleteMessage(chatid, msg.message_id)
     })
@@ -375,7 +379,7 @@ bot.onText(starlight,   (msg : any)=>{
             const name : string = SL.name
             const price : number = SL.price
             const code : string = SL.code
-            return (`>${name}\n-Rp ${price}\nCode ${code}`)
+            return (`>${name}\n-Rp ${price.toLocaleString()}\nCode ${code}`)
         }).join(`\n\n`)
         return (`${title}\n\n${list}\n\n${Disc}`)
     })
@@ -395,12 +399,16 @@ bot.onText(pubgm,       (msg : any)=>{
             const code : string = items.code 
             const percent : number = price /10
             const total : number = Math.round(price + percent)
-            return (`> ${name}\n> Rp. ${total}\n> Code : ${code}`)
+            return (`> ${name}\n> Rp. ${total.toLocaleString()}\n> Code : ${code}`)
         }).join(`\n\n`)
         return(`${title}\n\n${list}`)
+        
     })
 
     bot.sendMessage(Chatid, `${listItems}\n\nuntuk membeli bisa gunakan ${prefix}buy [kode] [ id ] [ nickname ]\n\n contoh : ${prefix}buy ${Pubgm[0].list[2].code} 64378003 TOKYO \n\n KESALAHAN INPUT BUKAN KESALAHAN DARI PIHAK KAMI `)
+    .then(()=>{
+        bot.deleteMessage(Chatid, msg.message_id)
+    })
 })
 bot.onText(codm,        (msg : any)=>{
     const Chatid : number = msg.chat.id
@@ -414,11 +422,14 @@ bot.onText(codm,        (msg : any)=>{
             const untung : number = price * 7 /100
             const total : number = Math.round(untung + price)
             const code : string = items.code
-            return (`> ${nama}\n> Rp. ${total}\n> Code : ${code}`)
+            return (`> ${nama}\n> Rp. ${total.toLocaleString()}\n> Code : ${code}`)
         }).join(`\n\n`)
         return(`${title}\n\n${item}`)
     })
     bot.sendMessage(Chatid, `${listitems}\n\nuntuk membeli bisa gunakan ${prefix}buy [kode] [ id ] [ nickname ]\n\n contoh : ${prefix}buy ${CODM[0].list[2].code} 64378003 TOKYO \n\n KESALAHAN INPUT BUKAN KESALAHAN DARI PIHAK KAMI`)
+    .then(()=>{
+        bot.deleteMessage(Chatid, msg.message_id)
+    })
 })
 bot.onText(freefire,    (msg : any)=>{
     const Chatid : number = msg.chat.id
@@ -431,12 +442,15 @@ bot.onText(freefire,    (msg : any)=>{
             const code : String = item.code
             const untung : number = price * 7 /100
             const total  :number = Math.round(price + untung)
-            return (`> ${name}\n> Rp. ${total}\n> Code : ${code}`)
+            return (`> ${name}\n> Rp. ${total.toLocaleString()}\n> Code : ${code}`)
         }).join(`\n\n`)
         return(`${title}\n\n${list}`)
     }).join(`\n\n`)
 
     bot.sendMessage(Chatid, `${listitems}\n\nuntuk membeli bisa gunakan ${prefix}buy [kode] [ id ] [ nickname ]\n\n contoh : ${prefix}buy ${FF[0].list[2].code} 64378003 TOKYO \n\n KESALAHAN INPUT BUKAN KESALAHAN DARI PIHAK KAMI`)
+    .then(()=>{
+        bot.deleteMessage(Chatid, msg.message_id)
+    })
 })
 bot.onText(HOK,         (msg : any)=>{
     const Chatid : number = msg.chat.id
@@ -455,26 +469,32 @@ bot.onText(HOK,         (msg : any)=>{
         return(`${title}\n\n\n ${list}`)
     })
     bot.sendMessage(Chatid, `${listitems}\n\nuntuk membeli bisa gunakan ${prefix}buy [kode] [ id ] [ nickname ]\n\n contoh : ${prefix}buy ${Hok[0].list[2].code} 64378003 TOKYO \n\n KESALAHAN INPUT BUKAN KESALAHAN DARI PIHAK KAMI`)
+    .then(()=>{
+        bot.deleteMessage(Chatid, msg.message_id)
+    })
 })
 bot.onText(netflix,     (msg : any)=>{
     const Chatid : number = msg.chat.id
     const userId : number = msg.from.id
 
-    bot.sendMessage(Chatid, Soon)
+    bot.sendMessage(Chatid, Soon).then(()=>{
+        bot.deleteMessage(Chatid, msg.message_id)
+    })
 })
 bot.onText(valo,        (msg : any)=>{
     const Chatid : number = msg.chat.id
     const userId : number = msg.from.id
 
-    bot.sendMessage(Chatid, Soon)
+    bot.sendMessage(Chatid, Soon).then(()=>{
+        bot.deleteMessage(Chatid, msg.message_id)
+    })
 })
 bot.onText(pointblank,  (msg : any)=>{
     const Chatid : number = msg.chat.id
     const userId : number = msg.from.id
 
-    bot.sendMessage(Chatid, Soon)
+    bot.sendMessage(Chatid, Soon).then(()=>{
+        bot.deleteMessage(Chatid, msg.message_id)
+    })
 })
-
-
-
 
