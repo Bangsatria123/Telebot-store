@@ -38,6 +38,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Hok = exports.FF = exports.CODM = exports.Pubgm = exports.SL = exports.Genshin = exports.MLGB = exports.MLindo = exports.WDP = exports.List = exports.Soon = void 0;
 var pict = "./QR.jpg";
+var logo = "./logo.jpg";
 var TelegramBot = require("node-telegram-bot-api");
 var token = "6935824994:AAHkW2N8clxr8HnUJsxDTHgxZwXbxBFYi1I";
 var bot = new TelegramBot(token, { polling: true });
@@ -79,13 +80,11 @@ exports.List = [
     { name: "/pointblank ( POINTBLANK LIST )" }
 ];
 exports.WDP = [
-    { name: "WDP SERVER INDO", price: 27000, code: "WDPID" },
-    { name: "WDP SERVER GLOBAL", price: 23000, code: "WDPGB" },
-    { name: " ", price: 25000, code: "WDPBR" }
+    { name: "WDP FAST", price: 29000, code: "WDPFAST" },
+    { name: "WDP SLOW (slot terbatas tanyakan dulu)", price: 27000, code: "WDPSLOW" },
+    { name: "WEP PACK (x5 slot terbatas tanyakan dulu)", price: 25000, code: "WDPPACK" }
 ];
 exports.MLindo = [
-    { name: "Mobile Legends (Indonesia) - 5 Diamonds", price: 1449, diamond: "MLID5D" },
-    { name: "Mobile Legends (Indonesia) - 12 Diamonds", price: 3370, diamond: "MLID12D" },
     { name: "Mobile Legends (Indonesia) - 17 + 2 Diamonds", price: 5290, diamond: "MLID19D" },
     { name: "Mobile Legends (Indonesia) - 25 + 3 Diamonds", price: 7682, diamond: "MLID28D" },
     { name: "Mobile Legends (Indonesia) - 40 + 4 Diamonds", price: 11524, diamond: "MLID44D" },
@@ -105,9 +104,6 @@ exports.MLGB = [
     {
         title: "**MOBILE LEGENDS GLOBAL SERVER**",
         list: [
-            { name: "Mobile Legends - 5 Diamonds", price: 1594.736, code: "MLGB5D" },
-            { name: "Mobile Legends - 10 + 1 Diamonds", price: 2591.16, code: "MLGB10D" },
-            { name: "Mobile Legends - 14 Diamonds", price: 3787.784, code: "MLGB14D" },
             { name: "Mobile Legends - 20 + 2 Diamonds", price: 5182.32, code: "MLGB20D" },
             { name: "Mobile Legends - 42 Diamonds", price: 11361.064, code: "MLGB42D" },
             { name: "Mobile Legends - 51 + 5 Diamonds", price: 12875.72, code: "MLGB51D" },
@@ -159,8 +155,7 @@ exports.SL = [
         title: "**STARLIGHT**",
         list: [
             { name: "Starlight card 7 days friendlist", price: 35000, code: "SL7D" },
-            { name: "Starlight Card Promo beli lebih dari 5", price: 33000, code: "SLP" },
-            { name: "Starlight Premium", price: 85000, code: "SLPREM" },
+            { name: "Starlight Card Promo beli lebih dari 5", price: 33000, code: "SLP" }
         ],
         Disclaimer: "\u2705 Delay 7-8H max 12hari\n\u26A0TIDAK MENERIMA SISTEM BERTEMAN DULU\n\u26A0SETIAP GIFT ITEM SL AKAN MENGURANGI KOUTA GIFT CARA AGAR TERHINDAR DARI ITU GIFT DARI AKUN ADMIN KE BUYER\n\u26A0NICK NAME TIDAK ADA UNSUR TOKO JADI AMAN\n\u26A0 CANCELDP HANGUS ATAU PEMBAYARAN LUNAS DIPOTONG 50%\n\u26A0 CHANGE NAME TANPA KONFIRMASI & UNFOLLOW AKUN ADMIN SEBELUM TANGGAL PENGIRIMAN DINYATAKAN HANGUS.\nMEMBELI BERARTI SETUJU"
     }
@@ -185,8 +180,6 @@ exports.CODM = [
     {
         title: "DAFTAR HARGA CODM",
         list: [
-            { name: "Call of Duty Mobile 31 CP", price: 4480.32, code: "CODMC31C" },
-            { name: "Call of Duty Mobile 26 CP", price: 4726.80, code: "CODMC26C" },
             { name: "Call of Duty Mobile 62 CP", price: 9137.44, code: "CODMC62C" },
             { name: "Call of Duty Mobile 128 CP", price: 17824.56, code: "CODMC128C" },
             { name: "Call of Duty Mobile 106 CP", price: 18592.08, code: "CODMC106C" },
@@ -212,8 +205,6 @@ exports.FF = [
     {
         title: "** Daftar Harga Garena Free Fire **",
         list: [
-            { name: "Garena Free Fire (Indonesia) - 5 Diamonds", price: 761.28, code: "GFFID5D" },
-            { name: "Garena Free Fire (Indonesia) - 12 Diamonds", price: 1739.92, code: "GFFID12D" },
             { name: "Garena Free Fire (Indonesia) - 50 Diamonds", price: 6088.16, code: "GFFID50D" },
             { name: "Garena Free Fire (Indonesia) - 70 Diamonds", price: 8372.00, code: "GFFID70D" },
             { name: "Garena Free Fire (Indonesia) - Level Up Pass", price: 12937.60, code: "GFFILUPP" },
@@ -234,9 +225,6 @@ exports.Hok = [
     {
         title: "** DAFTAR HARGA HONOR OF KINGS **",
         list: [
-            { name: "Honor of Kings - 8 Tokens", price: 1244.25, code: "HOKT8T" },
-            { name: "Honor of Kings - 16 + 1 Tokens", price: 2451.75, code: "HOKT16T" },
-            { name: "Honor of Kings - 23 + 2 Tokens", price: 4793.25, code: "HOKT23T" },
             { name: "Honor of Kings - 80 + 8 Tokens", price: 11525.85, code: "HOKT80T" },
             { name: "Honor of Kings - Weekly Card", price: 11525.85, code: "HOKWCC" },
             { name: "Honor of Kings - 240 + 17 Tokens", price: 38014.20, code: "HOKT240T" },
@@ -251,10 +239,12 @@ exports.Hok = [
         ]
     }
 ];
+var reseller = [6586066756, 1395190885];
 bot.onText(Start, function (msg) {
     var Chatid = 7118777240;
     var id = msg.chat.id;
-    bot.sendMessage(id, "silahkan ketik /list untuk melihat list harga\nSilahkan menggunakan \n{ /check id server } contoh : /check 64378003 2109 - tanpa tanda kurung untuk server\nuntuk melihat nickname anda agar lebih mudah untuk mengisi format pemberlian\n\n untuk check username sementara hanya untuk mobile legend, kami masih berusaha untuk melanjutkan pengembangan agar lebih berguna")
+    var caption = "Silahkan Gunakan\n> /list untuk melihat daftar harga\nSilahkan gunakan \n{ /check id server } contoh : /check 64378003 2109 - tanpa tanda kurung untuk server\nUntuk melihat nickname anda agar lebih mudah untuk mengisi format pemberlian\n\n Untuk check username sementara hanya untuk mobile legend, kami masih berusaha untuk melanjutkan pengembangan agar lebih berguna";
+    bot.sendPhoto(id, logo, { caption: caption })
         .then(function () {
         bot.deleteMessage(id, msg.message_id);
     });
@@ -323,9 +313,9 @@ bot.onText(Buy, function (msg) {
     var username = msg.from.username;
     var id = 7118777240;
     var phone = "081231511565";
+    var captions = "=------------PAYMENT----------=\n\nAntasena Store\n__________________________\n\u2022SEABANK: - \n\u2022GOPAY: ".concat(phone, "\n\u2022SHOPEPAY: ").concat(phone, "\n\u2022OVO: ").concat(phone, "\n\u2022DANA: ").concat(phone, "\n\n\nUntuk E-Wallet / Bank Lain ke QRIS (Gratis)\n\nNote : \n\n-Kirim Bukti transfer ke @AntasenaStores\n\nPENTING\n\u2022 TF DANA-DANA biaya admin Rp.100 (jumlah tf + Rp 100)\n\u2022 TF BANK-DANA biaya admin Rp.500 (jumlah tf +Rp 500) \n\u2022 TF BANK KE OVO/GOPAY(Jumlah TF + 2.000}\n\n__________________________\nA/N : Dimas Satria");
     bot.sendMessage(id, "".concat(chat, " from @").concat(username, " id ").concat(user));
-    bot.sendPhoto(chatid, pict);
-    bot.sendMessage(chatid, "PAYMENT\n\nAntasena Store\n__________________________\n\u2022SEABANK: - \n\u2022GOPAY: ".concat(phone, "\n\u2022SHOPEPAY: ").concat(phone, "\n\u2022OVO: ").concat(phone, "\n\u2022DANA: ").concat(phone, "\n\n\nUntuk E-Wallet / Bank Lain ke QRIS (Gratis)\n\nNote : \n\n-Kirim Bukti transfer ke @AntasenaStores\n\nPENTING\n\u2022 TF DANA-DANA biaya admin Rp.100 (jumlah tf + Rp 100)\n\u2022 TF BANK-DANA biaya admin Rp.500 (jumlah tf +Rp 500) \n\u2022 TF BANK KE OVO/GOPAY(Jumlah TF + 2.000}\n\n__________________________\nA/N : Dimas Satria"));
+    bot.sendPhoto(chatid, pict, { caption: captions, });
 });
 bot.onText(Listharga, function (msg) {
     var chatid = msg.chat.id;
@@ -354,9 +344,9 @@ bot.onText(indo, function (msg) {
         bot.deleteMessage(Chatid, msg.message_id);
     });
 });
+//global done // 
 bot.onText(global, function (msg) {
     var Chatid = msg.chat.id;
-    var userId = msg.from.id;
     var listItems = exports.MLGB.map(function (items) {
         var title = items.title;
         var list = items.list.map(function (items) {
@@ -364,7 +354,8 @@ bot.onText(global, function (msg) {
             var prices = items.price;
             var code = items.code;
             var harga = Math.round(prices).toLocaleString();
-            return (" > ".concat(name, "\n-Rp ").concat(harga, "\n-Code ").concat(code, " "));
+            var discount = Math.round(prices - Math.round(prices * 1.5 / 100));
+            return (" > ".concat(name, "\n-Rp ").concat(reseller.includes(Chatid) ? discount.toLocaleString() : harga, "\n-Code ").concat(code, " "));
         }).join("\n\n");
         return ("".concat(title, " \n\n").concat(list, " \n\n untuk membeli bisa gunakan ").concat(prefix, "buy [kode] [ id ] [ server ] [ nickname ]\n\n contoh : ").concat(prefix, "buy ").concat(items.list[1].code, " 64378004 2109 TOKYO \n\n KESALAHAN INPUT BUKAN KESALAHAN DARI PIHAK KAMI"));
     });
@@ -373,16 +364,17 @@ bot.onText(global, function (msg) {
         bot.deleteMessage(Chatid, msg.message_id);
     });
 });
+// gesnhin done //
 bot.onText(genshin, function (msg) {
     var Chatid = msg.chat.id;
-    var userId = msg.from.id;
     var listItems = exports.Genshin.map(function (item) {
         var items = item.title;
         var lists = item.list.map(function (lists) {
             var name = lists.name;
             var price = lists.price;
             var code = lists.code;
-            return ("".concat(name, "\nRp- ").concat(price.toLocaleString(), "\n").concat(code));
+            var discount = Math.round(price - Math.round(price * 1.5 / 100));
+            return ("".concat(name, "\nRp- ").concat(reseller.includes(Chatid) ? discount.toLocaleString() : price.toLocaleString(), "\n").concat(code));
         }).join("\n\n");
         return "".concat(items, "\n\n").concat(lists);
     });
@@ -391,22 +383,24 @@ bot.onText(genshin, function (msg) {
         bot.deleteMessage(Chatid, msg.message_id);
     });
 });
+// wdp done //
 bot.onText(wdp, function (msg) {
     var Chatid = msg.chat.id;
     var Wdp = exports.WDP.map(function (wdp) {
         var title = wdp.name;
         var harga = wdp.price;
         var kode = wdp.code;
-        return "".concat(title, "\n").concat(harga.toLocaleString(), "\n").concat(kode);
+        var discount = Math.round(harga - 1000);
+        return "".concat(title, "\n").concat(reseller.includes(Chatid) ? discount.toLocaleString() : harga.toLocaleString(), "\n").concat(kode);
     }).join("\n\n");
     bot.sendMessage(Chatid, "WEEKLY DIAMOND PASS\n".concat(Wdp, " \n\n untuk membeli bisa gunakan ").concat(prefix, "buy [kode] [ id ] [ server ] [ nickname ]\n\n contoh : ").concat(prefix, "buy ").concat(exports.WDP[0].code, " 64378004 2109 TOKYO \n\n KESALAHAN INPUT BUKAN KESALAHAN DARI PIHAK KAMI "))
         .then(function () {
         bot.deleteMessage(Chatid, msg.message_id);
     });
 });
+// starlight done //
 bot.onText(starlight, function (msg) {
     var Chatid = msg.chat.id;
-    var userId = msg.from.id;
     var listItems = exports.SL.map(function (SL) {
         var title = SL.title;
         var Disc = SL.Disclaimer;
@@ -414,7 +408,8 @@ bot.onText(starlight, function (msg) {
             var name = SL.name;
             var price = SL.price;
             var code = SL.code;
-            return (">".concat(name, "\n-Rp ").concat(price.toLocaleString(), "\nCode ").concat(code));
+            var discount = Math.round(price - 1000);
+            return (">".concat(name, "\n-Rp ").concat(reseller.includes(Chatid) ? discount.toLocaleString() : price.toLocaleString(), "\nCode ").concat(code));
         }).join("\n\n");
         return ("".concat(title, "\n\n").concat(list, "\n\n").concat(Disc));
     });
@@ -423,6 +418,7 @@ bot.onText(starlight, function (msg) {
         bot.deleteMessage(Chatid, msg.message_id);
     });
 });
+//pubgm done //
 bot.onText(pubgm, function (msg) {
     var Chatid = msg.chat.id;
     var userId = msg.from.id;
@@ -432,9 +428,9 @@ bot.onText(pubgm, function (msg) {
             var name = items.name;
             var price = items.price;
             var code = items.code;
-            var percent = price / 10;
-            var total = Math.round(price + percent);
-            return ("> ".concat(name, "\n> Rp. ").concat(total.toLocaleString(), "\n> Code : ").concat(code));
+            var harga = price / 10;
+            var discount = price * 7 / 100;
+            return ("> ".concat(name, "\n> Rp. ").concat(reseller.includes(Chatid) ? Math.round(price + discount).toLocaleString() : Math.round(price + harga).toLocaleString(), "\n> Code : ").concat(code));
         }).join("\n\n");
         return ("".concat(title, "\n\n").concat(list));
     });
@@ -443,19 +439,19 @@ bot.onText(pubgm, function (msg) {
         bot.deleteMessage(Chatid, msg.message_id);
     });
 });
+//codm done // 
 bot.onText(codm, function (msg) {
     var Chatid = msg.chat.id;
     var userId = msg.from.id;
     var listitems = exports.CODM.map(function (items) {
         var title = items.title;
         var item = items.list.map(function (items) {
-            var nama = items.name;
-            var harga = items.price;
-            var price = Math.round(harga);
-            var untung = price * 7 / 100;
-            var total = Math.round(untung + price);
+            var name = items.name;
+            var price = items.price;
             var code = items.code;
-            return ("> ".concat(nama, "\n> Rp. ").concat(total.toLocaleString(), "\n> Code : ").concat(code));
+            var harga = price / 10;
+            var discount = price * 7 / 100;
+            return ("> ".concat(name, "\n> Rp. ").concat(reseller.includes(Chatid) ? Math.round(price + discount).toLocaleString() : Math.round(price + harga).toLocaleString(), "\n> Code : ").concat(code));
         }).join("\n\n");
         return ("".concat(title, "\n\n").concat(item));
     });
@@ -464,18 +460,19 @@ bot.onText(codm, function (msg) {
         bot.deleteMessage(Chatid, msg.message_id);
     });
 });
+// ff donee //
 bot.onText(freefire, function (msg) {
     var Chatid = msg.chat.id;
     var userId = msg.from.id;
     var listitems = exports.FF.map(function (items) {
         var title = items.title;
-        var list = items.list.map(function (item) {
-            var name = item.name;
-            var price = item.price;
-            var code = item.code;
-            var untung = price * 7 / 100;
-            var total = Math.round(price + untung);
-            return ("> ".concat(name, "\n> Rp. ").concat(total.toLocaleString(), "\n> Code : ").concat(code));
+        var list = items.list.map(function (items) {
+            var name = items.name;
+            var price = items.price;
+            var code = items.code;
+            var harga = price / 10;
+            var discount = price * 7 / 100;
+            return ("> ".concat(name, "\n> Rp. ").concat(reseller.includes(Chatid) ? Math.round(price + discount).toLocaleString() : Math.round(price + harga).toLocaleString(), "\n> Code : ").concat(code));
         }).join("\n\n");
         return ("".concat(title, "\n\n").concat(list));
     }).join("\n\n");
@@ -484,18 +481,19 @@ bot.onText(freefire, function (msg) {
         bot.deleteMessage(Chatid, msg.message_id);
     });
 });
+//hok done //
 bot.onText(HOK, function (msg) {
     var Chatid = msg.chat.id;
     var userId = msg.from.id;
     var listitems = exports.Hok.map(function (items) {
         var title = items.title;
-        var list = items.list.map(function (item) {
-            var name = item.name;
-            var price = item.price;
-            var code = item.code;
-            var untung = price * 8 / 100;
-            var total = Math.round(price + untung);
-            return ("> ".concat(name, "\n> Rp ").concat(total.toLocaleString(), "\n> code : ").concat(code, " "));
+        var list = items.list.map(function (items) {
+            var name = items.name;
+            var price = items.price;
+            var code = items.code;
+            var harga = price / 10;
+            var discount = price * 7 / 100;
+            return ("> ".concat(name, "\n> Rp. ").concat(reseller.includes(Chatid) ? Math.round(price + discount).toLocaleString() : Math.round(price + harga).toLocaleString(), "\n> Code : ").concat(code));
         }).join("\n\n");
         return ("".concat(title, "\n\n\n ").concat(list));
     });

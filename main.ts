@@ -1,4 +1,5 @@
 const pict = "./QR.jpg"
+const logo = "./logo.jpg"
 const TelegramBot = require("node-telegram-bot-api");
 
 const token : String = "6935824994:AAHkW2N8clxr8HnUJsxDTHgxZwXbxBFYi1I"
@@ -51,13 +52,11 @@ export const List : Array<{name : string}>= [
     {name : "/pointblank ( POINTBLANK LIST )"}
 ]
 export const WDP : Array<{name : string, price : number, code : string}> = [
-    {name : "WDP SERVER INDO" , price: 27000, code : "WDPID"},
-    {name : "WDP SERVER GLOBAL", price: 23000, code : "WDPGB"},
-    {name : " ", price : 25000, code : "WDPBR"}
+    {name : "WDP FAST" , price: 29000, code : "WDPFAST"},
+    {name : "WDP SLOW (slot terbatas tanyakan dulu)", price: 27000, code : "WDPSLOW"},
+    {name : "WEP PACK (x5 slot terbatas tanyakan dulu)", price : 25000, code : "WDPPACK"}
 ]
 export const MLindo: Array<{ name: string, price: number, diamond: string }> = [
-    { name: "Mobile Legends (Indonesia) - 5 Diamonds", price: 1449, diamond: "MLID5D" },
-    { name: "Mobile Legends (Indonesia) - 12 Diamonds", price: 3370, diamond: "MLID12D" },
     { name: "Mobile Legends (Indonesia) - 17 + 2 Diamonds", price: 5290, diamond: "MLID19D" },
     { name: "Mobile Legends (Indonesia) - 25 + 3 Diamonds", price: 7682, diamond: "MLID28D" },
     { name: "Mobile Legends (Indonesia) - 40 + 4 Diamonds", price: 11524, diamond: "MLID44D" },
@@ -77,9 +76,6 @@ export const MLGB : Array<{title : string, list : Array<{name : string, price : 
     {
     title : "**MOBILE LEGENDS GLOBAL SERVER**",
     list : [
-    {name : "Mobile Legends - 5 Diamonds", price: 1594.736, code : "MLGB5D"},
-    {name : "Mobile Legends - 10 + 1 Diamonds", price: 2591.16, code : "MLGB10D"},
-    {name : "Mobile Legends - 14 Diamonds", price: 3787.784, code : "MLGB14D"},
     {name : "Mobile Legends - 20 + 2 Diamonds", price: 5182.32, code : "MLGB20D"},
     {name : "Mobile Legends - 42 Diamonds", price: 11361.064, code : "MLGB42D"},
     {name : "Mobile Legends - 51 + 5 Diamonds", price: 12875.72, code : "MLGB51D"},
@@ -131,8 +127,7 @@ export const  SL : Array<{title : string, list : Array<{name : string, price : n
         title : "**STARLIGHT**",
         list : [
             {name : "Starlight card 7 days friendlist", price : 35000, code : "SL7D"},
-            {name : "Starlight Card Promo beli lebih dari 5", price : 33000, code : "SLP"},
-            {name : "Starlight Premium", price : 85000, code : "SLPREM"},
+            {name : "Starlight Card Promo beli lebih dari 5", price : 33000, code : "SLP"}
         ],
         Disclaimer : `✅ Delay 7-8H max 12hari\n⚠TIDAK MENERIMA SISTEM BERTEMAN DULU\n⚠SETIAP GIFT ITEM SL AKAN MENGURANGI KOUTA GIFT CARA AGAR TERHINDAR DARI ITU GIFT DARI AKUN ADMIN KE BUYER\n⚠NICK NAME TIDAK ADA UNSUR TOKO JADI AMAN\n⚠ CANCELDP HANGUS ATAU PEMBAYARAN LUNAS DIPOTONG 50%\n⚠ CHANGE NAME TANPA KONFIRMASI & UNFOLLOW AKUN ADMIN SEBELUM TANGGAL PENGIRIMAN DINYATAKAN HANGUS.\nMEMBELI BERARTI SETUJU`
     }
@@ -157,8 +152,6 @@ export const CODM : Array<{title : string, list : Array<{name : string, price : 
     {
         title : `DAFTAR HARGA CODM`,
         list : [
-                {name : "Call of Duty Mobile 31 CP", price: 4480.32, code : "CODMC31C"},
-                {name : "Call of Duty Mobile 26 CP", price: 4726.80, code : "CODMC26C"},
                 {name : "Call of Duty Mobile 62 CP", price: 9137.44, code : "CODMC62C"},
                 {name : "Call of Duty Mobile 128 CP", price: 17824.56, code : "CODMC128C"},
                 {name : "Call of Duty Mobile 106 CP", price: 18592.08, code : "CODMC106C"},
@@ -184,8 +177,6 @@ export const FF : Array<{title : String, list : Array<{name : string, price : nu
     {
         title : "** Daftar Harga Garena Free Fire **",
         list : [
-        {name : "Garena Free Fire (Indonesia) - 5 Diamonds", price: 761.28, code : "GFFID5D"},
-        {name : "Garena Free Fire (Indonesia) - 12 Diamonds", price: 1739.92, code : "GFFID12D"},
         {name : "Garena Free Fire (Indonesia) - 50 Diamonds", price: 6088.16, code : "GFFID50D"},
         {name : "Garena Free Fire (Indonesia) - 70 Diamonds", price: 8372.00, code : "GFFID70D"},
         {name : "Garena Free Fire (Indonesia) - Level Up Pass", price: 12937.60, code : "GFFILUPP"},
@@ -206,9 +197,6 @@ export const Hok : Array<{title : string, list : Array<{name : string, price : n
     {
         title : "** DAFTAR HARGA HONOR OF KINGS **",
         list  : [
-        {name : "Honor of Kings - 8 Tokens", price: 1244.25, code : "HOKT8T"},
-        {name : "Honor of Kings - 16 + 1 Tokens", price: 2451.75, code : "HOKT16T"},
-        {name : "Honor of Kings - 23 + 2 Tokens", price: 4793.25, code : "HOKT23T"},
         {name : "Honor of Kings - 80 + 8 Tokens", price: 11525.85, code : "HOKT80T"},
         {name : "Honor of Kings - Weekly Card", price: 11525.85, code : "HOKWCC"},
         {name : "Honor of Kings - 240 + 17 Tokens", price: 38014.20, code : "HOKT240T"},
@@ -225,13 +213,15 @@ export const Hok : Array<{title : string, list : Array<{name : string, price : n
 ]
 
 
+const reseller = [6586066756 , 1395190885]
+
 
 
 bot.onText(Start,       (msg : any)=>{
     const Chatid : number =  7118777240
     const id : number = msg.chat.id
-
-    bot.sendMessage(id, `silahkan ketik /list untuk melihat list harga\nSilahkan menggunakan \n{ /check id server } contoh : /check 64378003 2109 - tanpa tanda kurung untuk server\nuntuk melihat nickname anda agar lebih mudah untuk mengisi format pemberlian\n\n untuk check username sementara hanya untuk mobile legend, kami masih berusaha untuk melanjutkan pengembangan agar lebih berguna`)
+    const caption : string  = `Silahkan Gunakan\n> /list untuk melihat daftar harga\nSilahkan gunakan \n{ /check id server } contoh : /check 64378003 2109 - tanpa tanda kurung untuk server\nUntuk melihat nickname anda agar lebih mudah untuk mengisi format pemberlian\n\n Untuk check username sementara hanya untuk mobile legend, kami masih berusaha untuk melanjutkan pengembangan agar lebih berguna`
+    bot.sendPhoto(id, logo, {caption : caption})
     .then(()=>{
         bot.deleteMessage(id, msg.message_id)
     })
@@ -286,9 +276,9 @@ bot.onText(Buy,         (msg : any)=>{
     const username : string = msg.from.username
     const id : number = 7118777240
     const phone : string = "081231511565"
+    const captions : string = `=------------PAYMENT----------=\n\nAntasena Store\n__________________________\n•SEABANK: - \n•GOPAY: ${phone}\n•SHOPEPAY: ${phone}\n•OVO: ${phone}\n•DANA: ${phone}\n\n\nUntuk E-Wallet / Bank Lain ke QRIS (Gratis)\n\nNote : \n\n-Kirim Bukti transfer ke @AntasenaStores\n\nPENTING\n• TF DANA-DANA biaya admin Rp.100 (jumlah tf + Rp 100)\n• TF BANK-DANA biaya admin Rp.500 (jumlah tf +Rp 500) \n• TF BANK KE OVO/GOPAY(Jumlah TF + 2.000}\n\n__________________________\nA/N : Dimas Satria`
     bot.sendMessage(id, `${chat} from @${username} id ${user}`)
-    bot.sendPhoto(chatid, pict)
-    bot.sendMessage(chatid, `PAYMENT\n\nAntasena Store\n__________________________\n•SEABANK: - \n•GOPAY: ${phone}\n•SHOPEPAY: ${phone}\n•OVO: ${phone}\n•DANA: ${phone}\n\n\nUntuk E-Wallet / Bank Lain ke QRIS (Gratis)\n\nNote : \n\n-Kirim Bukti transfer ke @AntasenaStores\n\nPENTING\n• TF DANA-DANA biaya admin Rp.100 (jumlah tf + Rp 100)\n• TF BANK-DANA biaya admin Rp.500 (jumlah tf +Rp 500) \n• TF BANK KE OVO/GOPAY(Jumlah TF + 2.000}\n\n__________________________\nA/N : Dimas Satria`)
+    bot.sendPhoto(chatid, pict, {caption : captions,})
 })
 bot.onText(Listharga,   (msg : any)=>{
     const chatid : number = msg.chat.id
@@ -317,9 +307,9 @@ bot.onText(indo,        (msg : any)=>{
         bot.deleteMessage(Chatid, msg.message_id)
     })
 })
+//global done // 
 bot.onText(global,      (msg : any)=>{
     const Chatid : number = msg.chat.id
-    const userId : number = msg.from.id
 
     const listItems = MLGB.map(items => {
         const title : string = items.title
@@ -328,7 +318,8 @@ bot.onText(global,      (msg : any)=>{
             const prices : number = items.price
             const code : string = items.code
             const harga : string = Math.round(prices).toLocaleString()
-            return (` > ${name}\n-Rp ${harga}\n-Code ${code} `)
+            const discount : number = Math.round(prices - Math.round(prices * 1.5 /100))
+            return (` > ${name}\n-Rp ${reseller.includes(Chatid) ? discount.toLocaleString() : harga}\n-Code ${code} `)
         }).join(`\n\n`)
         return (`${title} \n\n${list} \n\n untuk membeli bisa gunakan ${prefix}buy [kode] [ id ] [ server ] [ nickname ]\n\n contoh : ${prefix}buy ${items.list[1].code} 64378004 2109 TOKYO \n\n KESALAHAN INPUT BUKAN KESALAHAN DARI PIHAK KAMI`)
     })
@@ -337,16 +328,17 @@ bot.onText(global,      (msg : any)=>{
         bot.deleteMessage(Chatid, msg.message_id)
     })
 })
+// gesnhin done //
 bot.onText(genshin,     (msg : any)=>{
     const Chatid : number = msg.chat.id
-    const userId : number = msg.from.id
     const listItems = Genshin.map(item => {
         const items = item.title
         const lists = item.list.map(lists => {
             const name : string = lists.name
             const price : number = lists.price
             const code : string = lists.code
-            return (`${name}\nRp- ${price.toLocaleString()}\n${code}`)
+            const discount : number = Math.round(price - Math.round(price * 1.5 / 100))
+            return (`${name}\nRp- ${reseller.includes(Chatid) ? discount.toLocaleString() : price.toLocaleString()}\n${code}`)
         }).join(`\n\n`)
         return `${items}\n\n${lists}`
     })
@@ -355,6 +347,7 @@ bot.onText(genshin,     (msg : any)=>{
         bot.deleteMessage(Chatid, msg.message_id)
     })
 })
+ // wdp done //
 bot.onText(wdp,         (msg : any)=>{
     const Chatid : number = msg.chat.id
 
@@ -362,16 +355,17 @@ bot.onText(wdp,         (msg : any)=>{
         const title = wdp.name
         const harga = wdp.price
         const kode  = wdp.code
-        return `${title}\n${harga.toLocaleString()}\n${kode}`
+        const discount : number = Math.round(harga - 1000)
+        return `${title}\n${reseller.includes(Chatid) ? discount.toLocaleString() : harga.toLocaleString()}\n${kode}`
     }).join(`\n\n`)
     bot.sendMessage(Chatid, `WEEKLY DIAMOND PASS\n${Wdp} \n\n untuk membeli bisa gunakan ${prefix}buy [kode] [ id ] [ server ] [ nickname ]\n\n contoh : ${prefix}buy ${WDP[0].code} 64378004 2109 TOKYO \n\n KESALAHAN INPUT BUKAN KESALAHAN DARI PIHAK KAMI `)
     .then(()=>{
         bot.deleteMessage(Chatid, msg.message_id)
     })
 })
+// starlight done //
 bot.onText(starlight,   (msg : any)=>{
     const Chatid : number = msg.chat.id
-    const userId : number = msg.from.id
     const listItems = SL.map(SL => {
         const title : string = SL.title
         const Disc : string = SL.Disclaimer
@@ -379,7 +373,8 @@ bot.onText(starlight,   (msg : any)=>{
             const name : string = SL.name
             const price : number = SL.price
             const code : string = SL.code
-            return (`>${name}\n-Rp ${price.toLocaleString()}\nCode ${code}`)
+            const discount : number = Math.round(price - 1000)
+            return (`>${name}\n-Rp ${reseller.includes(Chatid) ? discount.toLocaleString() : price.toLocaleString()}\nCode ${code}`)
         }).join(`\n\n`)
         return (`${title}\n\n${list}\n\n${Disc}`)
     })
@@ -388,6 +383,7 @@ bot.onText(starlight,   (msg : any)=>{
         bot.deleteMessage(Chatid, msg.message_id)
     })
 })
+//pubgm done //
 bot.onText(pubgm,       (msg : any)=>{
     const Chatid : number = msg.chat.id
     const userId : number = msg.from.id
@@ -397,9 +393,9 @@ bot.onText(pubgm,       (msg : any)=>{
             const name : string = items.name
             const price : number = items.price
             const code : string = items.code 
-            const percent : number = price /10
-            const total : number = Math.round(price + percent)
-            return (`> ${name}\n> Rp. ${total.toLocaleString()}\n> Code : ${code}`)
+            const harga : number = price / 10
+            const discount : number = price * 7 / 100
+            return (`> ${name}\n> Rp. ${reseller.includes(Chatid) ? Math.round(price + discount).toLocaleString():Math.round(price + harga).toLocaleString()}\n> Code : ${code}`)
         }).join(`\n\n`)
         return(`${title}\n\n${list}`)
         
@@ -410,19 +406,19 @@ bot.onText(pubgm,       (msg : any)=>{
         bot.deleteMessage(Chatid, msg.message_id)
     })
 })
+//codm done // 
 bot.onText(codm,        (msg : any)=>{
     const Chatid : number = msg.chat.id
     const userId : number = msg.from.id
     const listitems = CODM.map(items => {
         const title : string = items.title
         const item = items.list.map(items => {
-            const nama : string = items.name
-            const harga : number = items.price
-            const price : number = Math.round(harga)
-            const untung : number = price * 7 /100
-            const total : number = Math.round(untung + price)
+            const name : string = items.name
+            const price : number = items.price
             const code : string = items.code
-            return (`> ${nama}\n> Rp. ${total.toLocaleString()}\n> Code : ${code}`)
+            const harga : number = price / 10
+            const discount : number = price * 7 / 100
+            return (`> ${name}\n> Rp. ${reseller.includes(Chatid) ? Math.round(price + discount).toLocaleString():Math.round(price + harga).toLocaleString()}\n> Code : ${code}`)
         }).join(`\n\n`)
         return(`${title}\n\n${item}`)
     })
@@ -431,18 +427,19 @@ bot.onText(codm,        (msg : any)=>{
         bot.deleteMessage(Chatid, msg.message_id)
     })
 })
+// ff donee //
 bot.onText(freefire,    (msg : any)=>{
     const Chatid : number = msg.chat.id
     const userId : number = msg.from.id
     const listitems = FF.map(items => {
         const title : String = items.title
-        const list = items.list.map(item => {
-            const name : String = item.name
-            const price  :number = item.price
-            const code : String = item.code
-            const untung : number = price * 7 /100
-            const total  :number = Math.round(price + untung)
-            return (`> ${name}\n> Rp. ${total.toLocaleString()}\n> Code : ${code}`)
+        const list = items.list.map(items => {
+            const name : string = items.name
+            const price : number = items.price
+            const code : string = items.code
+            const harga : number = price / 10
+            const discount : number = price * 7 / 100
+            return (`> ${name}\n> Rp. ${reseller.includes(Chatid) ? Math.round(price + discount).toLocaleString():Math.round(price + harga).toLocaleString()}\n> Code : ${code}`)
         }).join(`\n\n`)
         return(`${title}\n\n${list}`)
     }).join(`\n\n`)
@@ -452,19 +449,20 @@ bot.onText(freefire,    (msg : any)=>{
         bot.deleteMessage(Chatid, msg.message_id)
     })
 })
+//hok done //
 bot.onText(HOK,         (msg : any)=>{
     const Chatid : number = msg.chat.id
     const userId : number = msg.from.id
 
     const listitems = Hok.map(items => {
         const title = items.title
-        const list = items.list.map(item => {
-            const name : string = item.name
-            const price : number = item.price
-            const code : string = item.code
-            const untung : number = price * 8/100
-            const total : number = Math.round(price + untung)
-            return ( `> ${name}\n> Rp ${total.toLocaleString()}\n> code : ${code} ` )
+        const list = items.list.map(items => {
+            const name : string = items.name
+            const price : number = items.price
+            const code : string = items.code
+            const harga : number = price / 10
+            const discount : number = price * 7 / 100
+            return (`> ${name}\n> Rp. ${reseller.includes(Chatid) ? Math.round(price + discount).toLocaleString():Math.round(price + harga).toLocaleString()}\n> Code : ${code}`)
         }).join(`\n\n`)
         return(`${title}\n\n\n ${list}`)
     })
