@@ -19,6 +19,7 @@ const Process = new RegExp(`^${prefix}process`)
 const Check = new RegExp(`^${prefix}check`)
 const done = new RegExp(`^${prefix}done`)
 const Ai = new RegExp(`^${prefix}ai`)
+const TF = new RegExp(`^${prefix}tf`)
 
 // LIST HARGA --------
 const indo = new RegExp(`^${prefix}dmindo$`)
@@ -57,20 +58,20 @@ export const WDP : Array<{name : string, price : number, code : string}> = [
     {name : "WEP PACK (x5 slot terbatas tanyakan dulu)", price : 25000, code : "WDPPACK"}
 ]
 export const MLindo: Array<{ name: string, price: number, diamond: string }> = [
-    { name: "Mobile Legends (Indonesia) - 17 + 2 Diamonds", price: 5290, diamond: "MLID19D" },
-    { name: "Mobile Legends (Indonesia) - 25 + 3 Diamonds", price: 7682, diamond: "MLID28D" },
-    { name: "Mobile Legends (Indonesia) - 40 + 4 Diamonds", price: 11524, diamond: "MLID44D" },
-    { name: "Mobile Legends (Indonesia) - 53 + 6 Diamonds", price: 15364, diamond: "MLID59D" },
-    { name: "Mobile Legends (Indonesia) - 77 + 8 Diamonds", price: 22069, diamond: "MLID85D" },
-    { name: "Mobile Legends (Indonesia) - 154 + 16 Diamonds", price: 44138, diamond: "MLID170D" },
-    { name: "Mobile Legends (Indonesia) - 217 + 23 Diamonds", price: 62222, diamond: "MLID240D" },
-    { name: "Mobile Legends (Indonesia) - 256 + 40 Diamonds", price: 76573, diamond: "MLID296D" },
-    { name: "Mobile Legends (Indonesia) - 367 + 41 Diamonds", price: 105310, diamond: "MLID408D" },
-    { name: "Mobile Legends (Indonesia) - 503 + 65 Diamonds", price: 143651, diamond: "MLID568D" },
-    { name: "Mobile Legends (Indonesia) - 774 + 101 Diamonds", price: 220186, diamond: "MLID875D" },
-    { name: "Mobile Legends (Indonesia) - 1708 + 302 Diamonds", price: 478678, diamond: "MLID2010D" },
-    { name: "Mobile Legends (Indonesia) - 4003 + 827 Diamonds", price: 1148697, diamond: "MLID4830D" },
-    { name: "Mobile Legends (Indonesia) - Twilight Pass", price: 144085, diamond: "MLITPP" }
+    { name: "19 Diamonds (17 + 2 Bonus)", price: 5257.20, diamond: "DB19" },
+    { name: "28 Diamonds (25 + 3 Bonus)", price: 7647.12, diamond: "DB28" },
+    { name: "44 Diamonds (40 + 4 Bonus)", price: 11433.76, diamond: "DB44" },
+    { name: "59 Diamonds (53 + 6 Bonus)", price: 15257.84, diamond: "DB59" },
+    { name: "85 Diamonds (77 + 8 Bonus)", price: 21911.76, diamond: "DB85" },
+    { name: "170 Diamonds (154 + 16 Bonus)", price: 43896.32, diamond: "DB170" },
+    { name: "240 Diamonds (217 + 23 Bonus)", price: 61873.76, diamond: "DB240" },
+    { name: "296 Diamonds (256 + 40 Bonus)", price: 76138.40, diamond: "DB296" },
+    { name: "408 Diamonds (367 + 41 Bonus)", price: 104704.08, diamond: "DB408" },
+    { name: "568 Diamonds (503 + 65 Bonus)", price: 142828.40, diamond: "DB568" },
+    { name: "875 Diamonds (774 + 101 Bonus)", price: 218892.96, diamond: "DB875" },
+    { name: "2010 Diamonds (1708 + 302 Bonus)", price: 475872.80, diamond: "DB2010" },
+    { name: "4830 Diamonds (4003 + 827 Bonus)", price: 1142000.08, diamond: "DB4830" },
+    { name: "Twilight Pass", price: 142828.40, diamond: "TPP" },
 ]
 export const MLGB : Array<{title : string, list : Array<{name : string, price : number, code : string}>}>=[
     {
@@ -197,17 +198,17 @@ export const Hok : Array<{title : string, list : Array<{name : string, price : n
     {
         title : "** DAFTAR HARGA HONOR OF KINGS **",
         list  : [
-        {name : "Honor of Kings - 80 + 8 Tokens", price: 11525.85, code : "HOKT80T"},
-        {name : "Honor of Kings - Weekly Card", price: 11525.85, code : "HOKWCC"},
-        {name : "Honor of Kings - 240 + 17 Tokens", price: 38014.20, code : "HOKT240T"},
-        {name : "Honor of Kings - Weekly Card Plus", price: 38014.20, code : "HOKWCPP"},
-        {name : "Honor of Kings - 400 + 32 Tokens", price: 63809.55, code : "HOKT400T"},
-        {name : "Honor of Kings - 560 + 45 Tokens", price: 87516.45, code : "HOKT560T"},
-        {name : "Honor of Kings - 800 + 95 Tokens", price: 117847.80, code : "HOKT800T"},
-        {name : "Honor of Kings - 1200 + 153 Tokens", price: 188790.00, code : "HOKT1200T"},
-        {name : "Honor of Kings - 2400 + 324 Tokens", price: 372458.10, code : "HOKT2400T"},
-        {name : "Honor of Kings - 4000 + 580 Tokens", price: 609947.10, code : "HOKT4000T"},
-        {name : "Honor of Kings - 8000 + 1160 Tokens", price: 1156706.25, code : "HOKT8000T"}
+        {name : "Honor of Kings - 80 + 8 Tokens", price: 12132.64, code : "HOKT80T"},
+        {name : "Honor of Kings - Weekly Card", price: 14000.64, code : "HOKWCC"},
+        {name : "Honor of Kings - 240 + 17 Tokens", price: 38823.20, code : "HOKT240T"},
+        {name : "Honor of Kings - Weekly Card Plus", price: 38823.20, code : "HOKWCPP"},
+        {name : "Honor of Kings - 400 + 32 Tokens", price: 66064.96, code : "HOKT400T"},
+        {name : "Honor of Kings - 560 + 45 Tokens", price: 90034.88, code : "HOKT560T"},
+        {name : "Honor of Kings - 800 + 65 Tokens", price: 123711.12, code : "HOKT800T"},
+        {name : "Honor of Kings - 1200 + 108 Tokens", price: 194077.52, code : "HOKT1200T"},
+        {name : "Honor of Kings - 2400 + 216 Tokens", price: 396426.16, code : "HOKT2400T"},
+        {name : "Honor of Kings - 4000 + 400 Tokens", price: 660722.40, code : "HOKT4000T"},
+        {name : "Honor of Kings - 8000 + 800 Tokens", price: 1164168.72, code : "HOKT8000T"}
         ]
     }
 ]
@@ -298,7 +299,7 @@ bot.onText(indo,        (msg : any)=>{
         const name : string = item.name
         const price : number = item.price
         const code : string = item.diamond
-        const percent : number = price * 5 / 100
+        const percent : number = price * 10 / 100
         const harga : number = Math.round(price + percent)
         return `- ${name}\n- Rp ${harga.toLocaleString()}\n- ${code}`
     }).join(`\n\n`);
@@ -460,7 +461,7 @@ bot.onText(HOK,         (msg : any)=>{
             const name : string = items.name
             const price : number = items.price
             const code : string = items.code
-            const harga : number = price / 10
+            const harga : number = price * 10 /100
             const discount : number = price * 7 / 100
             return (`> ${name}\n> Rp. ${reseller.includes(Chatid) ? Math.round(price + discount).toLocaleString():Math.round(price + harga).toLocaleString()}\n> Code : ${code}`)
         }).join(`\n\n`)
@@ -495,4 +496,17 @@ bot.onText(pointblank,  (msg : any)=>{
         bot.deleteMessage(Chatid, msg.message_id)
     })
 })
-
+bot.on('photo', (msg : any)=>{
+    const Chatid = 7118777240
+    const id = msg.chat.id
+    const userid = msg.from.id
+    const msgId = msg.message_id
+    console.log(msg)
+    if(msg.caption == "/tf"){
+        bot.forwardMessage(Chatid, userid, msgId)
+        bot.sendMessage(Chatid, `> ${msg.from.username} > ${msg.from.id}`)
+    }
+    else [
+        bot.sendMessage(id, " gunakan /tf pada caption untuk mengirim bukti transfer")
+    ]
+})
