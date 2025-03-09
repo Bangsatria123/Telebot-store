@@ -1,8 +1,11 @@
+
+import * as dotenv from 'dotenv';
+dotenv.config();
 const pict = "./QR.jpg"
 const logo = "./logo.jpg"
 const TelegramBot = require("node-telegram-bot-api");
 
-const token : String = "6935824994:AAHkW2N8clxr8HnUJsxDTHgxZwXbxBFYi1I"
+const token : String = `${process.env.TELE_TOKEN}`
 
 
 const bot = new TelegramBot(token, {polling : true})
@@ -40,38 +43,94 @@ const pointblank = new RegExp(`^${prefix}pointblank$`) //dm pointblank
 export const Soon : string = "ON PROGRESS\nWE'LL FIX IT RECENTLY PLEASE BE PATIENT"
 export const List : Array<{name : string}>= [
     {name : "/dmindo ( MOBILE LEGEND INDO SERVER )"},
-    {name : "/dmglobal( MOBILE LEGEND GLOBAL SERVER )"},
     {name : "/wdp ( MOBILE LEGEND WEEKLY DIAMOND PASS )"},
     {name : "/starlight ( MOBILE LEGEND MONTHLY STARLIGHT )"},
-    {name : "/genshin ( GENSHIN IMPACT )"},
     {name : "/HOK ( HONOR OF KINGS )"},
     {name : "/netflix ( NETFLIX  )"},
     {name : "/freefire ( GARENA FREEFIRE INDONESIA )"},
-    {name : "/pubgm ( TENCENT PUBG MOBILE )"},
     {name : "/codm ( CALL OF DUTY MOBILE )"},
-    {name : "/valo ( VALORANT )"},
-    {name : "/pointblank ( POINTBLANK LIST )"}
 ]
 export const WDP : Array<{name : string, price : number, code : string}> = [
     {name : "WDP FAST" , price: 29000, code : "WDPFAST"},
     {name : "WDP SLOW (slot terbatas tanyakan dulu)", price: 27000, code : "WDPSLOW"},
     {name : "WEP PACK (x5 slot terbatas tanyakan dulu)", price : 25000, code : "WDPPACK"}
 ]
-export const MLindo: Array<{ name: string, price: number, diamond: string }> = [
-    { name: "19 Diamonds (17 + 2 Bonus)", price: 5257.20, diamond: "DB19" },
-    { name: "28 Diamonds (25 + 3 Bonus)", price: 7647.12, diamond: "DB28" },
-    { name: "44 Diamonds (40 + 4 Bonus)", price: 11433.76, diamond: "DB44" },
-    { name: "59 Diamonds (53 + 6 Bonus)", price: 15257.84, diamond: "DB59" },
-    { name: "85 Diamonds (77 + 8 Bonus)", price: 21911.76, diamond: "DB85" },
-    { name: "170 Diamonds (154 + 16 Bonus)", price: 43896.32, diamond: "DB170" },
-    { name: "240 Diamonds (217 + 23 Bonus)", price: 61873.76, diamond: "DB240" },
-    { name: "296 Diamonds (256 + 40 Bonus)", price: 76138.40, diamond: "DB296" },
-    { name: "408 Diamonds (367 + 41 Bonus)", price: 104704.08, diamond: "DB408" },
-    { name: "568 Diamonds (503 + 65 Bonus)", price: 142828.40, diamond: "DB568" },
-    { name: "875 Diamonds (774 + 101 Bonus)", price: 218892.96, diamond: "DB875" },
-    { name: "2010 Diamonds (1708 + 302 Bonus)", price: 475872.80, diamond: "DB2010" },
-    { name: "4830 Diamonds (4003 + 827 Bonus)", price: 1142000.08, diamond: "DB4830" },
-    { name: "Twilight Pass", price: 142828.40, diamond: "TPP" },
+export const MLindo: Array<{ name: string, price: number, code : string }> = [
+    { name: "20 (18+2) Diamonds", price: 6474, code: "DB20" },
+    { name: "30 (28+2) Diamonds", price: 9118, code: "DB30" },
+    { name: "44 (40+4) Diamonds", price: 12769, code: "DB44" },
+    { name: "50 (46+4) Diamonds", price: 15102, code: "DB50" },
+    { name: "60 (55+5) Diamonds", price: 18340, code: "DB60" },
+    { name: "71 (64+7) Diamonds", price: 20748, code: "DB71" },
+    { name: "70 (64+6) Diamonds", price: 21472, code: "DB70" },
+    { name: "80 (73+7) Diamonds", price: 23557, code: "DB80" },
+    { name: "85 (77+8) Diamonds", price: 24472, code: "DB85" },
+    { name: "83 (75+8) Diamonds", price: 24577, code: "DB83" },
+    { name: "84 (76+8) Diamonds", price: 24810, code: "DB84" },
+    { name: "88 (80+8) Diamonds", price: 25889, code: "DB88" },
+    { name: "89 (81+8) Diamonds", price: 26142, code: "DB89" },
+    { name: "92 (84+8) Diamonds", price: 26967, code: "DB92" },
+    { name: "98 (89+9) Diamonds", price: 27701, code: "DB98" },
+    { name: "100 (91+9) Diamonds", price: 27972, code: "DB100" },
+    { name: "110 (100+10) Diamonds", price: 30889, code: "DB110" },
+    { name: "113 (102+11) Diamonds", price: 31485, code: "DB113" },
+    { name: "112 (101+11) Diamonds", price: 31807, code: "DB112" },
+    { name: "116 (105+11) Diamonds", price: 32837, code: "DB116" },
+    { name: "129 (117+12) Diamonds", price: 35548, code: "DB129" },
+    { name: "128 (116+12) Diamonds", price: 35871, code: "DB128" },
+    { name: "148 (134+14) Diamonds", price: 41185, code: "DB148" },
+    { name: "170 (154+16) Diamonds", price: 46718, code: "DB170" },
+    { name: "176 (160+16) Diamonds", price: 49423, code: "DB176" },
+    { name: "222 (200+22) Diamonds", price: 60304, code: "DB222" },
+    { name: "240 (217+23) Diamonds", price: 64308, code: "DB240" },
+    { name: "241 (218+23) Diamonds", price: 65813, code: "DB241" },
+    { name: "277 (250+27) Diamonds", price: 75381, code: "DB277" },
+    { name: "284 (257+27) Diamonds", price: 76206, code: "DB284" },
+    { name: "296 (256+40) Diamonds", price: 79134, code: "DB296" },
+    { name: "305 (276+29) Diamonds", price: 83422, code: "DB305" },
+    { name: "370 (333+37) Diamonds", price: 100506, code: "DB370" },
+    { name: "384 (346+38) Diamonds", price: 102997, code: "DB384" },
+    { name: "408 (367+41) Diamonds", price: 107237, code: "DB408" },
+    { name: "406 (366+40) Diamonds", price: 108939, code: "DB406" },
+    { name: "518 (467+51) Diamonds", price: 138650, code: "DB518" },
+    { name: "568 (503+65) Diamonds", price: 146268, code: "DB568" },
+    { name: "554 (500+54) Diamonds", price: 148554, code: "DB554" },
+    { name: "716 (637+79) Diamonds", price: 185883, code: "DB716" },
+    { name: "750 (668+82) Diamonds", price: 194623, code: "DB750" },
+    { name: "790 (703+87) Diamonds", price: 205689, code: "DB790" },
+    { name: "875 (774+101) Diamonds", price: 224196, code: "DB875" },
+    { name: "874 (779+95) Diamonds", price: 228468, code: "DB874" },
+    { name: "966 (836+130) Diamonds", price: 247588, code: "DB966" },
+    { name: "1048 (936+112) Diamonds", price: 275013, code: "DB1048" },
+    { name: "1067 (953+114) Diamonds", price: 279965, code: "DB1067" },
+    { name: "1136 (1006+130) Diamonds", price: 292535, code: "DB1136" },
+    { name: "1358 (1206+152) Diamonds", price: 351956, code: "DB1358" },
+    { name: "1506 (1339+167) Diamonds", price: 391569, code: "DB1506" },
+    { name: "1704 (1509+195) Diamonds", price: 438802, code: "DB1704" },
+    { name: "2010 (1708+302) Diamonds", price: 487379, code: "DB2010" },
+    { name: "2380 (2041+339) Diamonds", price: 586414, code: "DB2380" },
+    { name: "2578 (2211+367) Diamonds", price: 633646, code: "DB2578" },
+    { name: "2855 (2461+394) Diamonds", price: 707923, code: "DB2855" },
+    { name: "3146 (2714+432) Diamonds", price: 779913, code: "DB3146" },
+    { name: "3423 (2964+459) Diamonds", price: 854190, code: "DB3423" },
+    { name: "3738 (3247+491) Diamonds", price: 938368, code: "DB3738" },
+    { name: "4020 (3416+604) Diamonds", price: 974758, code: "DB4020" },
+    { name: "4830 (4003+827) Diamonds", price: 1169603, code: "DB4830" },
+    { name: "4856 (4027+829) Diamonds", price: 1176983, code: "DB4856" },
+    { name: "4958 (4252+706) Diamonds", price: 1220059, code: "DB4958" },
+    { name: "5052 (4203+849) Diamonds", price: 1229024, code: "DB5052" },
+    { name: "5398 (4506+892) Diamonds", price: 1315870, code: "DB5398" },
+    { name: "6030 (5124+906) Diamonds", price: 1462136, code: "DB6030" },
+    { name: "6840 (5711+1129) Diamonds", price: 1656981, code: "DB6840" },
+    { name: "7685 (6464+1221) Diamonds", price: 1877525, code: "DB7685" },
+    { name: "8040 (6832+1208) Diamonds", price: 1949514, code: "DB8040" },
+    { name: "8850 (7419+1431) Diamonds", price: 2144360, code: "DB8850" },
+    { name: "9660 (8006+1654) Diamonds", price: 2339205, code: "DB9660" },
+    { name: "10050 (8540+1510) Diamonds", price: 2436892, code: "DB10050" },
+    { name: "14490 (12009+2481) Diamonds", price: 3508806, code: "DB14490" },
+    { name: "16080 (13664+2416) Diamonds", price: 3899027, code: "DB16080" },
+    { name: "20100 (17080+3020) Diamonds", price: 4873784, code: "DB20100" },
+    { name: "Twilight Pass", price: 146268, code: "TPP" },
 ]
 export const MLGB : Array<{title : string, list : Array<{name : string, price : number, code : string}>}>=[
     {
@@ -153,24 +212,21 @@ export const CODM : Array<{title : string, list : Array<{name : string, price : 
     {
         title : `DAFTAR HARGA CODM`,
         list : [
-                {name : "Call of Duty Mobile 62 CP", price: 9137.44, code : "CODMC62C"},
-                {name : "Call of Duty Mobile 128 CP", price: 17824.56, code : "CODMC128C"},
-                {name : "Call of Duty Mobile 106 CP", price: 18592.08, code : "CODMC106C"},
-                {name : "Call of Duty Mobile 165 CP", price: 27981.20, code : "CODMC165C"},
-                {name : "Call of Duty Mobile 264 CP", price: 40302.08, code : "CODMC264C"},
-                {name : "Call of Duty Mobile 320 CP", price: 45757.92, code : "CODMC320C"},
-                {name : "Call of Duty Mobile 390 CP", price: 60608.08, code : "CODMC390C"},
-                {name : "Call of Duty Mobile 640 CP", price: 92698.32, code : "CODMC640C"},
-                {name : "Call of Duty Mobile 1024 CP", price: 150005.44, code : "CODMC1024C"},
-                {name : "Call of Duty Mobile 1288 CP", price: 190038.16, code : "CODMC1288C"},
-                {name : "Call of Duty Mobile 1584 CP", price: 283566.40, code : "CODMC1584C"},
-                {name : "Call of Duty Mobile 2059 CP", price: 289761.68, code : "CODMC2059C"},
-                {name : "Call of Duty Mobile 2750 CP", price: 338361.92, code : "CODMC2750C"},
-                {name : "Call of Duty Mobile 3564 CP", price: 445233.36, code : "CODMC3564C"},
-                {name : "Call of Duty Mobile 5618 CP", price: 651870.96, code : "CODMC5618C"},
-                {name : "Call of Duty Mobile 4013 CP", price: 704566.72, code : "CODMC4013C"},
-                {name : "Call of Duty Mobile 7656 CP", price: 890429.28, code : "CODMC7656C"},
-                {name : "Call of Duty Mobile 10560 CP", price: 1819763.92, code : "CODMC10560C"}
+                {name : "Call of Duty Mobile 31 CP", price: 4357, code : "CODMC31C"},
+                {name : "Call of Duty Mobile 63 CP", price: 8752, code : "CODMC63C"},
+                {name : "Call of Duty Mobile 128 CP", price: 17505, code : "CODMC128C"},
+                {name : "Call of Duty Mobile 321 CP", price: 43764, code : "CODMC321C"},
+                {name : "Call of Duty Mobile 645 CP", price: 87491, code : "CODMC645C"},
+                {name : "Call of Duty Mobile 800 CP", price: 104997, code : "CODMC800C"},
+                {name : "Call of Duty Mobile 1373 CP", price: 175020, code : "CODMC1373C"},
+                {name : "Call of Duty Mobile 2060 CP", price: 262512, code : "CODMC2060C"},
+                {name : "Call of Duty Mobile 2750 CP", price: 332497, code : "CODMC2750C"},
+                {name : "Call of Duty Mobile 3564 CP", price: 437495, code : "CODMC3564C"},
+                {name : "Call of Duty Mobile 5618 CP", price: 689614, code : "CODMC5618C"},
+                {name : "Call of Duty Mobile 7656 CP", price: 875028, code : "CODMC7656C"},
+                {name : "Call of Duty Mobile 15312 CP", price: 1750054, code : "CODMC15312C"},
+                {name : "Call of Duty Mobile 38280 CP", price: 4375138, code : "CODMC38280C"},
+                {name : "Call of Duty Mobile 76569 CP", price: 8750277, code : "CODMC76569C"}
         ]
     }
 ]
@@ -178,19 +234,21 @@ export const FF : Array<{title : String, list : Array<{name : string, price : nu
     {
         title : "** Daftar Harga Garena Free Fire **",
         list : [
-        {name : "Garena Free Fire (Indonesia) - 50 Diamonds", price: 6088.16, code : "GFFID50D"},
-        {name : "Garena Free Fire (Indonesia) - 70 Diamonds", price: 8372.00, code : "GFFID70D"},
-        {name : "Garena Free Fire (Indonesia) - Level Up Pass", price: 12937.60, code : "GFFILUPP"},
-        {name : "Garena Free Fire (Indonesia) - 140 Diamonds", price: 16779.36, code : "GFFID140D"},
-        {name : "Garena Free Fire (Indonesia) - Member Mingguan", price: 25404.08, code : "GFFIMMM"},
-        {name : "Garena Free Fire (Indonesia) - BP card", price: 38848.16, code : "GFFIBCC"},
-        {name : "Garena Free Fire (Indonesia) - 355 Diamonds", price: 41928.64, code : "GFFID355D"},
-        {name : "Garena Free Fire (Indonesia) - Member Bulanan", price: 76246.56, code : "GFFIMBB"},
-        {name : "Garena Free Fire (Indonesia) - 720 Diamonds", price: 83893.68, code : "GFFID720D"},
-        {name : "Garena Free Fire (Indonesia) - 1450 Diamonds", price: 169272.48, code : "GFFID1450D"},
-        {name : "Garena Free Fire (Indonesia) - 2180 Diamonds", price: 255520.72, code : "GFFID2180D"},
-        {name : "Garena Free Fire (Indonesia) - 3640 Diamonds", price: 425480.64, code : "GFFID3640D"},
-        {name : "Garena Free Fire (Indonesia) - 7290 Diamonds", price: 838782.88, code : "GFFID7290D"}
+        {name : "Garena Free Fire (Indonesia) - 5 Diamonds", price: 856, code : "GFFID5D"},
+        {name : "Garena Free Fire (Indonesia) - 12 Diamonds", price: 1712, code : "GFFID12D"},
+        {name : "Garena Free Fire (Indonesia) - 50 Diamonds", price: 6592, code : "GFFID50D"},
+        {name : "Garena Free Fire (Indonesia) - 70 Diamonds", price: 8446, code : "GFFID70D"},
+        {name : "Garena Free Fire (Indonesia) - 140 Diamonds", price: 17058, code : "GFFID140D"},
+        {name : "Garena Free Fire (Indonesia) - 355 Diamonds", price: 42683, code : "GFFID355D"},
+        {name : "Garena Free Fire (Indonesia) - 720 Diamonds", price: 84362, code : "GFFID720D"},
+        {name : "Garena Free Fire (Indonesia) - 1450 Diamonds", price: 170438, code : "GFFID1450D"},
+        {name : "Garena Free Fire (Indonesia) - 2180 Diamonds", price: 256477, code : "GFFID2180D"},
+        {name : "Garena Free Fire (Indonesia) - 3640 Diamonds", price: 429412, code : "GFFID3640D"},
+        {name : "Garena Free Fire (Indonesia) - 7290 Diamonds", price: 856218, code : "GFFID7290D"},
+        {name : "Garena Free Fire (Indonesia) - Level Up Pass", price: 13817, code : "GFFILUPP"},
+        {name : "Garena Free Fire (Indonesia) - Member Mingguan", price: 27525, code : "GFFIMMM"},
+        {name : "Garena Free Fire (Indonesia) - BP card", price: 41380, code : "GFFIBCC"},
+        {name : "Garena Free Fire (Indonesia) - Member Bulanan", price: 82649, code : "GFFIMBB"}
         ]
     }
 ]
@@ -198,23 +256,24 @@ export const Hok : Array<{title : string, list : Array<{name : string, price : n
     {
         title : "** DAFTAR HARGA HONOR OF KINGS **",
         list  : [
-        {name : "Honor of Kings - 80 + 8 Tokens", price: 12132.64, code : "HOKT80T"},
-        {name : "Honor of Kings - Weekly Card", price: 14000.64, code : "HOKWCC"},
-        {name : "Honor of Kings - 240 + 17 Tokens", price: 38823.20, code : "HOKT240T"},
-        {name : "Honor of Kings - Weekly Card Plus", price: 38823.20, code : "HOKWCPP"},
-        {name : "Honor of Kings - 400 + 32 Tokens", price: 66064.96, code : "HOKT400T"},
-        {name : "Honor of Kings - 560 + 45 Tokens", price: 90034.88, code : "HOKT560T"},
-        {name : "Honor of Kings - 800 + 65 Tokens", price: 123711.12, code : "HOKT800T"},
-        {name : "Honor of Kings - 1200 + 108 Tokens", price: 194077.52, code : "HOKT1200T"},
-        {name : "Honor of Kings - 2400 + 216 Tokens", price: 396426.16, code : "HOKT2400T"},
-        {name : "Honor of Kings - 4000 + 400 Tokens", price: 660722.40, code : "HOKT4000T"},
-        {name : "Honor of Kings - 8000 + 800 Tokens", price: 1164168.72, code : "HOKT8000T"}
+        {name : "17 Tokens", price: 2271, code : "HOKT17T"},
+        {name : "88 Tokens", price: 12328, code : "HOKT88T"},
+        {name : "257 Tokens", price: 38847, code : "HOKT257T"},
+        {name : "432 Tokens", price: 65217, code : "HOKT432T"},
+        {name : "605 Tokens", price: 89614, code : "HOKT605T"},
+        {name : "895 Tokens", price: 122241, code : "HOKT895T"},
+        {name : "1353 Tokens", price: 191558, code : "HOKT1353T"},
+        {name : "2724 Tokens", price: 381141, code : "HOKT2724T"},
+        {name : "4580 Tokens", price: 624173, code : "HOKT4580T"},
+        {name : "9160 Tokens", price: 1222712, code : "HOKT9160T"},
+        {name : "Weekly Card", price: 12068, code : "HOKWCC"},
+        {name : "Weekly Card Plus", price: 38847, code : "HOKWCPP"}
         ]
     }
 ]
 
 
-const reseller = [6586066756 , 1395190885]
+const reseller = [6586066756 , 1395190885, 8048254429]
 
 
 
@@ -226,17 +285,16 @@ bot.onText(Start,       (msg : any)=>{
     .then(()=>{
         bot.deleteMessage(id, msg.message_id)
     })
-    
 })
 bot.onText(Check,  async(msg : any)=>{
     const chatid : number = msg.chat.id
     const id : number = msg.text.split(" ")[1]
     const server : number = msg.text.split(" ")[2]
-    const url = `https://id-game-checker.p.rapidapi.com/mobile-legends/${id}/${server}`;
+    const url = `${process.env.ID_ENDPOINT}/${id}/${server}`;
     const options = {
         method: 'GET',
         headers: {
-            'x-rapidapi-key': "ff160ddb02msh8a65f414190e1d7p159344jsn61e34ea0c235",
+            'x-rapidapi-key': `${process.env.RAPID_APIKEY}`,
             'x-rapidapi-host':'id-game-checker.p.rapidapi.com',
         }
     };
@@ -297,13 +355,15 @@ bot.onText(indo,        (msg : any)=>{
     const Chatid : number = msg.chat.id
     const listItems = MLindo.map(item => {
         const name : string = item.name
-        const price : number = item.price
-        const code : string = item.diamond
+        const qris : number = Math.round(item.price * 0.75 / 100)
+        const price : number = item.price + qris
+        const code : string = item.code
         const percent : number = price * 10 / 100
-        const harga : number = Math.round(price + percent)
+        const discount : number = price * 5 / 100
+        const harga : number =  reseller.includes(Chatid) ? Math.round(price + discount) : Math.round(price + percent)
         return `- ${name}\n- Rp ${harga.toLocaleString()}\n- ${code}`
     }).join(`\n\n`);
-    bot.sendMessage(Chatid, `MOBILE LEGEND SERVER INDO\n${listItems} \n\n untuk membeli bisa gunakan ${prefix}buy [kode] [ id ] [ server ] [ nickname ]\n\n contoh : ${prefix}buy ${MLindo[1].diamond} 64378003 2109 TOKYO \n\n KESALAHAN INPUT BUKAN KESALAHAN DARI PIHAK KAMI `)
+    bot.sendMessage(Chatid, `MOBILE LEGEND SERVER INDO\n${listItems} \n\n untuk membeli bisa gunakan ${prefix}buy [kode] [ id ] [ server ] [ nickname ]\n\n contoh : ${prefix}buy ${MLindo[1].code} 64378003 2109 TOKYO \n\n KESALAHAN INPUT BUKAN KESALAHAN DARI PIHAK KAMI `)
     .then(()=>{
         bot.deleteMessage(Chatid, msg.message_id)
     })
